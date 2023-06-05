@@ -8,6 +8,7 @@ const formData = require('express-form-data')
 // import routes
 const profilesRouter = require('./routes/profiles.js')
 const authRouter = require('./routes/auth.js')
+const habitsRouter = require('./routes/habits.js')
 
 // create the express app
 const app = express()
@@ -21,6 +22,7 @@ app.use(formData.parse())
 // mount imported routes
 app.use('/api/profiles', profilesRouter)
 app.use('/api/auth', authRouter)
+app.use('/api/habits', habitsRouter)
 
 // handle 404 errors
 app.use(function (req, res, next) {
@@ -33,3 +35,14 @@ app.use(function (err, req, res, next) {
 })
 
 module.exports = app
+
+
+
+/*
+
+1. create an account with validation.
+-JWT Auth implementation
+-model structure for account creation
+
+
+*/
