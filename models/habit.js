@@ -14,9 +14,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Habit.init({
+    profileId: DataTypes.INTEGER,
     title: DataTypes.STRING,
     description: DataTypes.STRING,
-    isComplete: DataTypes.BOOLEAN
+    frequency: DataTypes.STRING,
+    last_completed_date: DataTypes.DATE,
+    start_date: DataTypes.DATE,
+    target: DataTypes.NUMBER,
+    category: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Habit',

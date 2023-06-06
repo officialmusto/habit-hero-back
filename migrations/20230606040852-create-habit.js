@@ -1,7 +1,4 @@
 'use strict';
-
-const { all } = require('../server');
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -12,26 +9,29 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      profileId: {
+        type: Sequelize.INTEGER
+      },
       title: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        type: Sequelize.STRING
       },
       description: {
-        type: Sequelize.STRING,
-        allowNull: true,
+        type: Sequelize.STRING
       },
-      profileId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Profiles',
-          key: 'id',
-        },
+      frequency: {
+        type: Sequelize.STRING
       },
-      isComplete: {
-        type: Sequelize.BOOLEAN,
-        allowNull: true
+      last_completed_date: {
+        type: Sequelize.DATE
+      },
+      start_date: {
+        type: Sequelize.DATE
+      },
+      target: {
+        type: Sequelize.NUMBER
+      },
+      category: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
