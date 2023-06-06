@@ -14,17 +14,47 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Habit.init({
-    profileId: DataTypes.INTEGER,
-    title: DataTypes.STRING,
-    description: DataTypes.STRING,
-    frequency: DataTypes.STRING,
-    last_completed_date: DataTypes.DATE,
-    start_date: DataTypes.DATE,
-    target: DataTypes.NUMBER,
-    category: DataTypes.STRING
+    profileId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'Profile',
+        key: 'id',
+      }
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    frequency: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    last_completed_date: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    start_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    target: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   }, {
     sequelize,
     modelName: 'Habit',
   });
+  
   return Habit;
 };
