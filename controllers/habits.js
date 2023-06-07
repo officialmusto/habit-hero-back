@@ -24,8 +24,14 @@ async function index(req, res) {
 
 async function update(req, res) {
   try {
-    const habit = await Habit.update(req.body, 
-    { returning: true, where: { id: req.params.id }})
+
+    const habit = await Habit.update(
+      req.body,
+      { returning: true, 
+        where: { 
+          id: req.params.id, 
+          profileId: req.user.profile.id
+      }})
     res.status(200).json(habit)
   } catch(err){
     res.status(500).json(err)
@@ -35,8 +41,11 @@ async function update(req, res) {
 async function deleteHabit(req, res) {
   try {
     const numberOfRowsRemoved = await Habit.destroy(
-      { where: { id: req.params.id } }
-    )
+      {         
+        where: { 
+        id: req.params.id, 
+        profileId: req.user.profile.id 
+    }})
     res.status(200).json(numberOfRowsRemoved)
   } catch(err){
     res.status(500).json(err)
