@@ -13,8 +13,10 @@ async function create(req, res) {
 
 async function index(req, res) {
   try {
-
-    res.status(201).json()
+    const habits = await Habit.findAll({ 
+      order: [['id', 'DESC']] 
+    })
+    res.status(200).json(habits)
   } catch(err){
     res.status(500).json(err)
   }
@@ -22,8 +24,9 @@ async function index(req, res) {
 
 async function update(req, res) {
   try {
-    
-    res.status(201).json()
+    const habit = await Habit.update(req.body, 
+    { returning: true, where: { id: req.params.id }})
+    res.status(200).json(habit)
   } catch(err){
     res.status(500).json(err)
   }
@@ -32,7 +35,7 @@ async function update(req, res) {
 async function deleteHabit(req, res) {
   try {
 
-    res.status(201).json()
+    res.status(200).json()
   } catch(err){
     res.status(500).json(err)
   }
