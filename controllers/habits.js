@@ -34,8 +34,10 @@ async function update(req, res) {
 
 async function deleteHabit(req, res) {
   try {
-
-    res.status(200).json()
+    const numberOfRowsRemoved = await Habit.destroy(
+      { where: { id: req.params.id } }
+    )
+    res.status(200).json(numberOfRowsRemoved)
   } catch(err){
     res.status(500).json(err)
   }

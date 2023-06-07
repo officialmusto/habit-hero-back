@@ -15,5 +15,6 @@ router.use(decodeUserFromToken)
 router.post('/', checkAuth, habitsCtrl.create)
 router.get('/', checkAuth, habitsCtrl.index)
 router.put('/:id', checkAuth, habitsCtrl.update)
+router.delete('/:id', checkAuth, habitsCtrl.delete)
 
 module.exports = router
