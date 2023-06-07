@@ -13,9 +13,13 @@ async function create(req, res) {
 
 async function index(req, res) {
   try {
-    const habits = await Habit.findAll({ 
-      order: [['id', 'DESC']] 
-    })
+    const habits = await Habit.findAll({
+      where: { 
+        profileId: req.user.profile.id  
+      },
+      order: [
+        ['id', 'DESC']
+      ]})
     res.status(200).json(habits)
   } catch(err){
     res.status(500).json(err)
