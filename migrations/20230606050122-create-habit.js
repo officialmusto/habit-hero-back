@@ -63,3 +63,4 @@ module.exports = {
     await queryInterface.dropTable('Habits');
   }
 };
+//! THIS MIGRATION WILL CONTAIN EXTRA ATTRIBUTES // PROPERTIES NEEDED TO IMPROVE ON PROJECT IN FUTURE.

@@ -56,3 +56,5 @@ module.exports = (sequelize, DataTypes) => {
   
   return Habit;
 };
+
+//! THIS MODEL WILL CONTAIN EXTRA ATTRIBUTES // PROPERTIES NEEDED TO IMPROVE ON PROJECT IN FUTURE.
