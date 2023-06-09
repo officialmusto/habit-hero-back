@@ -36,3 +36,5 @@ module.exports = (sequelize, DataTypes) => {
   })
   return Profile
 }
+
+//! THIS MODEL WILL CONTAIN EXTRA ATTRIBUTES (photo) // PROPERTIES NEEDED TO IMPROVE ON PROJECT IN FUTURE.

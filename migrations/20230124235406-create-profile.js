@@ -37,3 +37,5 @@ module.exports = {
     await queryInterface.dropTable('Profiles');
   }
 };
+
+//! THIS MIGRATION WILL CONTAIN EXTRA ATTRIBUTES (photo) // PROPERTIES NEEDED TO IMPROVE ON PROJECT IN FUTURE.
