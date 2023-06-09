@@ -29,13 +29,14 @@ async function index(req, res) {
 async function update(req, res) {
   try {
 
-    const habit = await Habit.update(
+    const updateResult = await Habit.update(
       req.body,
       { returning: true, 
         where: { 
-          id: req.params.id, 
+          id: req.params.id,
           profileId: req.user.profile.id
       }})
+    const habit = updateResult[1][0]
     res.status(200).json(habit)
   } catch(err){
     res.status(500).json(err)
